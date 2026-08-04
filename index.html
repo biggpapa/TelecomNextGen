@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammad Jamal Zaidi — Network Design Engineer</title>
+<meta name="description" content="Telecom Network Design Engineer with 7+ years designing, optimizing and modernizing 2G, 3G, 4G, and 5G radio networks for Global Telecom operators, e.g. AT&T, T-Mobile, Verizon, Sprint and Rogers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A0E16;
+    --panel:#121826;
+    --panel-2:#171F30;
+    --hairline:#26314699;
+    --hairline-solid:#263146;
+    --paper:#E7ECF5;
+    --muted:#8996AC;
+    --muted-dim:#5C6779;
+    --amber:#F2A93B;
+    --amber-dim:#F2A93B33;
+    --cyan:#4CC9F0;
+    --cyan-dim:#4CC9F033;
+    --green:#6EE7B7;
+    --radius:14px;
+    --maxw:1180px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-0.01em;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  ul{list-style:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  section{position:relative;}
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--cyan);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  ::selection{background:var(--amber);color:var(--ink);}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease, background .3s ease;
+  }
+  header.nav.scrolled{
+    background:#0A0E16CC;
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--hairline);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:16px 32px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk';font-weight:600;font-size:15px;letter-spacing:.02em;}
+  .brand .hexmark{width:28px;height:28px;flex:none;}
+  .nav-links{display:flex;gap:28px;align-items:center;}
+  .nav-links a{font-size:13.5px;color:var(--muted);font-family:'IBM Plex Mono';letter-spacing:.02em;transition:color .2s;}
+  .nav-links a:hover{color:var(--paper);}
+  .status-chip{
+    display:flex;align-items:center;gap:7px;
+    font-family:'IBM Plex Mono';font-size:11.5px;color:var(--green);
+    border:1px solid #6EE7B74D;background:#6EE7B71A;
+    padding:6px 12px;border-radius:100px;letter-spacing:.03em;
+  }
+  .status-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse-dot 2s infinite;}
+  .nav-print{
+    font-family:'IBM Plex Mono';font-size:12.5px;color:var(--ink);
+    background:var(--amber);border:none;padding:9px 16px;border-radius:8px;
+    cursor:pointer;font-weight:600;letter-spacing:.02em;
+  }
+  .nav-mobile-toggle{display:none;background:none;border:1px solid var(--hairline-solid);color:var(--paper);width:38px;height:38px;border-radius:8px;cursor:pointer;}
+
+  @keyframes pulse-dot{0%,100%{opacity:1;box-shadow:0 0 0 0 #6EE7B766;}50%{opacity:.6;box-shadow:0 0 0 4px #6EE7B700;}}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex;align-items:center;
+    padding:140px 0 80px;
+    position:relative;
+    overflow:hidden;
+  }
+  #hexcanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
+  .hero::after{
+    content:'';position:absolute;inset:0;z-index:1;
+    background:radial-gradient(ellipse 70% 60% at 30% 40%, transparent 0%, var(--ink) 78%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.35fr .75fr;gap:56px;align-items:center;}
+  .eyebrow{
+    font-family:'IBM Plex Mono';font-size:12.5px;color:var(--amber);
+    letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:'';width:22px;height:1px;background:var(--amber);}
+  .hero h1{
+    font-size:clamp(38px,5.4vw,68px);line-height:1.02;letter-spacing:-0.02em;
+    margin-bottom:20px;
+  }
+  .hero-sub{
+    font-size:18px;color:var(--muted);max-width:520px;margin-bottom:36px;
+    font-weight:400;
+  }
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px;}
+  .btn{
+    font-family:'IBM Plex Mono';font-size:13.5px;letter-spacing:.02em;
+    padding:13px 22px;border-radius:9px;font-weight:500;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:transform .18s ease, background .18s ease, border-color .18s ease;
+  }
+  .btn-primary{background:var(--amber);color:var(--ink);border:1px solid var(--amber);}
+  .btn-primary:hover{transform:translateY(-2px);background:#FFC066;}
+  .btn-ghost{background:transparent;color:var(--paper);border:1px solid var(--hairline-solid);}
+  .btn-ghost:hover{transform:translateY(-2px);border-color:var(--cyan);color:var(--cyan);}
+
+  .readout-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--hairline-solid);border:1px solid var(--hairline-solid);border-radius:12px;overflow:hidden;max-width:460px;}
+  .readout{background:var(--panel);padding:18px 20px;}
+  .readout .num{font-family:'Space Grotesk';font-size:28px;font-weight:700;color:var(--paper);}
+  .readout .num span{color:var(--amber);}
+  .readout .label{font-family:'IBM Plex Mono';font-size:10.5px;color:var(--muted-dim);letter-spacing:.06em;text-transform:uppercase;margin-top:4px;}
+
+  .hero-avatar-wrap{display:flex;flex-direction:column;align-items:center;gap:22px;}
+  .hex-avatar{width:230px;height:230px;position:relative;}
+  .hex-avatar svg{width:100%;height:100%;filter:drop-shadow(0 20px 40px #F2A93B22);}
+  .avatar-caption{font-family:'IBM Plex Mono';font-size:11.5px;color:var(--muted-dim);text-align:center;letter-spacing:.04em;}
+
+  /* ---------- TICKER ---------- */
+  .ticker-section{border-top:1px solid var(--hairline-solid);border-bottom:1px solid var(--hairline-solid);background:var(--panel);padding:22px 0;position:relative;z-index:2;}
+  .ticker-label{font-family:'IBM Plex Mono';font-size:10.5px;color:var(--muted-dim);letter-spacing:.14em;text-transform:uppercase;text-align:center;margin-bottom:14px;}
+  .ticker-track-outer{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
+  .ticker-track{display:flex;gap:56px;width:max-content;animation:ticker 32s linear infinite;}
+  @keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  .ticker-item{font-family:'Space Grotesk';font-weight:600;font-size:19px;color:var(--muted);white-space:nowrap;display:flex;align-items:center;gap:14px;letter-spacing:.01em;}
+  .ticker-item .dot{width:5px;height:5px;border-radius:50%;background:var(--amber);}
+
+  /* ---------- SECTION SHARED ---------- */
+  .section{padding:110px 0;}
+  .section-head{margin-bottom:56px;max-width:640px;}
+  .section-head .eyebrow{margin-bottom:14px;}
+  .section-head h2{font-size:clamp(26px,3.2vw,38px);}
+  .section-head p{color:var(--muted);font-size:16px;margin-top:14px;}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:64px;}
+  .about-body p{color:var(--muted);font-size:16.5px;margin-bottom:18px;max-width:560px;}
+  .about-body p strong{color:var(--paper);font-weight:600;}
+  .specialty-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--hairline);}
+  .specialty-list li{
+    display:flex;align-items:center;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hairline);font-size:14.5px;color:var(--paper);
+  }
+  .specialty-list li .idx{font-family:'IBM Plex Mono';font-size:12px;color:var(--amber);width:28px;flex:none;}
+
+  /* ---------- EXPERIENCE ---------- */
+  .timeline{position:relative;padding-left:2px;}
+  .timeline::before{
+    content:'';position:absolute;left:118px;top:8px;bottom:8px;width:1px;
+    background:linear-gradient(var(--hairline-solid),var(--hairline-solid) 90%, transparent);
+  }
+  @media(max-width:720px){.timeline::before{left:16px;}}
+
+  .tl-item{display:grid;grid-template-columns:100px 36px 1fr;gap:0;margin-bottom:6px;}
+  @media(max-width:720px){.tl-item{grid-template-columns:0px 32px 1fr;}}
+  .tl-date{font-family:'IBM Plex Mono';font-size:12px;color:var(--muted-dim);padding-top:26px;line-height:1.5;}
+  @media(max-width:720px){.tl-date{display:none;}}
+  .tl-marker{display:flex;justify-content:center;padding-top:30px;position:relative;}
+  .tl-dot{width:11px;height:11px;border-radius:50%;background:var(--ink);border:2px solid var(--amber);position:relative;z-index:2;}
+  .tl-dot::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid var(--amber-dim);}
+  .tl-card{
+    background:var(--panel);border:1px solid var(--hairline-solid);border-radius:var(--radius);
+    padding:26px 28px;margin-bottom:28px;
+  }
+  .tl-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px;}
+  .tl-role{font-family:'Space Grotesk';font-size:19px;font-weight:600;}
+  .tl-company{font-family:'IBM Plex Mono';font-size:12.5px;color:var(--cyan);margin-top:5px;}
+  .tl-date-mobile{display:none;font-family:'IBM Plex Mono';font-size:11.5px;color:var(--muted-dim);}
+  @media(max-width:720px){.tl-date-mobile{display:block;margin-top:6px;}}
+  .tl-tags{display:flex;gap:6px;flex-wrap:wrap;}
+  .tl-tag{font-family:'IBM Plex Mono';font-size:10.5px;color:var(--muted);border:1px solid var(--hairline-solid);padding:4px 9px;border-radius:100px;letter-spacing:.03em;}
+  .tl-bullets{margin-top:16px;display:flex;flex-direction:column;gap:9px;}
+  .tl-bullets li{display:flex;gap:10px;font-size:14.5px;color:var(--muted);}
+  .tl-bullets li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--amber);flex:none;margin-top:8px;}
+
+  .home-base{
+    display:flex;align-items:center;gap:14px;padding:16px 20px;border:1px dashed var(--hairline-solid);
+    border-radius:12px;margin-bottom:44px;color:var(--muted-dim);font-size:13.5px;
+  }
+  .home-base b{color:var(--paper);font-weight:600;}
+
+  /* ---------- SKILLS ---------- */
+  .skill-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  @media(max-width:720px){.skill-groups{grid-template-columns:1fr;}}
+  .skill-card{background:var(--panel);border:1px solid var(--hairline-solid);border-radius:var(--radius);padding:26px 26px 22px;}
+  .skill-card h3{font-size:15px;font-family:'IBM Plex Mono';font-weight:600;color:var(--amber);letter-spacing:.03em;margin-bottom:16px;text-transform:uppercase;font-size:12px;}
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{font-family:'Inter';font-size:13.5px;color:var(--paper);background:var(--panel-2);border:1px solid var(--hairline-solid);padding:7px 13px;border-radius:8px;}
+
+  .core-comp{margin-top:44px;}
+  .core-comp h3{font-family:'IBM Plex Mono';font-size:12px;color:var(--muted-dim);letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px;}
+  .core-comp .chip-row .chip{background:transparent;border-color:var(--hairline-solid);color:var(--muted);}
+
+  /* ---------- CREDENTIALS ---------- */
+  .cred-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media(max-width:720px){.cred-grid{grid-template-columns:1fr;}}
+  .cred-card{background:var(--panel);border:1px solid var(--hairline-solid);border-radius:var(--radius);padding:26px;}
+  .cred-card .cred-eyebrow{font-family:'IBM Plex Mono';font-size:10.5px;color:var(--muted-dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;}
+  .cred-row{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--hairline);}
+  .cred-row:last-child{border-bottom:none;}
+  .cred-row svg{flex:none;margin-top:2px;}
+  .cred-row .t{font-weight:600;font-size:14.5px;}
+  .cred-row .s{font-size:13px;color:var(--muted-dim);margin-top:3px;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-panel{
+    background:linear-gradient(135deg,var(--panel),var(--panel-2));
+    border:1px solid var(--hairline-solid);border-radius:20px;
+    padding:64px 56px;text-align:center;position:relative;overflow:hidden;
+  }
+  @media(max-width:720px){.contact-panel{padding:44px 24px;}}
+  .contact-panel h2{font-size:clamp(26px,4vw,42px);margin-bottom:16px;max-width:640px;margin-left:auto;margin-right:auto;}
+  .contact-panel p{color:var(--muted);font-size:16px;max-width:480px;margin:0 auto 34px;}
+  .contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+  footer{padding:40px 0;border-top:1px solid var(--hairline-solid);}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-family:'IBM Plex Mono';font-size:12px;color:var(--muted-dim);}
+
+  @media(max-width:900px){
+    .hero-inner{grid-template-columns:1fr;}
+    .hero-avatar-wrap{order:-1;}
+    .about-grid{grid-template-columns:1fr;}
+  }
+  @media(max-width:720px){
+    .nav-links{position:fixed;top:64px;left:0;right:0;background:var(--ink);flex-direction:column;align-items:flex-start;padding:20px 32px;border-bottom:1px solid var(--hairline-solid);transform:translateY(-120%);transition:transform .25s ease;gap:18px;}
+    .nav-links.open{transform:translateY(0);}
+    .nav-mobile-toggle{display:block;}
+    .status-chip{display:none;}
+    .section{padding:72px 0;}
+    .wrap{padding:0 20px;}
+    .readout-grid{max-width:100%;}
+  }
+
+  @media print{
+    header.nav, .hero #hexcanvas, .ticker-section, .contact-panel, footer, .hero::after{display:none !important;}
+    body{background:#fff;color:#111;}
+    .hero{min-height:auto;padding:20px 0;}
+    .tl-card, .skill-card, .cred-card{border-color:#ccc;background:#fafafa;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="siteNav">
+  <div class="nav-inner">
+    <div class="brand">
+      <svg class="hexmark" viewBox="0 0 40 40"><polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="none" stroke="#F2A93B" stroke-width="2"/><text x="20" y="25" text-anchor="middle" font-family="IBM Plex Mono" font-size="12" fill="#F2A93B" font-weight="600">MJZ</text></svg>
+      Jamal Zaidi
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div class="status-chip"><span class="status-dot"></span>OPEN TO ENGAGEMENTS</div>
+      <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <svg id="hexcanvas"></svg>
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow">Network Design Engineer · End-to-End Telco Services</div>
+      <h1>Mohammad<br>Jamal Zaidi</h1>
+      <p class="hero-sub">Seven+ years driving end‑to‑end design and rollout of 2G–5G radio networks for major carriers including AT&T, T‑Mobile, Verizon, Sprint, and Rogers, leveraging Ericsson and Nokia technologies.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="mailto:jmlzaidi@gmail.com">Email Jamal →</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/jamal-zaidi-svz/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      </div>
+      <div class="readout-grid">
+        <div class="readout"><div class="num"><span>7+</span></div><div class="label">Years in RF Design</div></div>
+        <div class="readout"><div class="num"><span>4</span></div><div class="label">Network Gens · 2G–5G</div></div>
+        <div class="readout"><div class="num"><span>5</span></div><div class="label">Major Carrier Programs</div></div>
+        <div class="readout"><div class="num"><span>50+</span></div><div class="label">Engineers Trained</div></div>
+      </div>
+    </div>
+    <div class="hero-avatar-wrap">
+      <!-- Swap this SVG monogram for an <img src="your-photo.jpg"> for a personal headshot -->
+      <div class="hex-avatar">
+        <svg viewBox="0 0 240 240">
+          <defs>
+            <linearGradient id="avgrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#F2A93B"/>
+              <stop offset="100%" stop-color="#4CC9F0"/>
+            </linearGradient>
+          </defs>
+          <polygon points="120,10 216,63 216,177 120,230 24,177 24,63" fill="#121826" stroke="url(#avgrad)" stroke-width="2.5"/>
+          <text x="120" y="140" text-anchor="middle" font-family="Space Grotesk" font-size="56" font-weight="700" fill="#E7ECF5">MJZ</text>
+        </svg>
+      </div>
+      <div class="avatar-caption">NOIDA, UTTAR PRADESH, IN<br>ERICSSON INDIA GLOBAL SERVICES</div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker-section">
+  <div class="ticker-label">Networks I've Designed &amp; Optimized</div>
+  <div class="ticker-track-outer">
+    <div class="ticker-track" id="tickerTrack">
+      <span class="ticker-item">AT&amp;T<span class="dot"></span></span>
+      <span class="ticker-item">ROGERS<span class="dot"></span></span>
+      <span class="ticker-item">T-MOBILE<span class="dot"></span></span>
+      <span class="ticker-item">VERIZON<span class="dot"></span></span>
+      <span class="ticker-item">SPRINT<span class="dot"></span></span>
+      <span class="ticker-item">ERICSSON<span class="dot"></span></span>
+      <span class="ticker-item">NOKIA<span class="dot"></span></span>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <div class="section-head" style="margin-bottom:28px;">
+        <div class="eyebrow">Signal Summary</div>
+        <h2>Seven years turning RF theory into networks that hold up under load.</h2>
+      </div>
+      <div class="about-body">
+        <p>I'm an RF engineer who has spent the last seven years turning radio theory into networks that perform in the field — from <strong>macro site design and indoor DAS/IBS planning</strong> to <strong>KPI-driven optimization</strong> across 2G, 3G, LTE, and 5G.</p>
+        <p>I work fluently across <strong>Ericsson and Nokia</strong> platforms, using Atoll, NetAct, Actix, IWM and ENM to plan coverage, chase down interference, and keep capacity ahead of demand.</p>
+        <p>Most recently, I led a <strong>cross-functional team</strong> through AT&amp;T's SWAP &amp; Modernization program, and before that delivered RF design and optimization for Rogers, T-Mobile, Verizon, and Sprint.</p>
+      </div>
+    </div>
+    <div class="reveal">
+      <ul class="specialty-list">
+        <li><span class="idx mono">01</span>Radio Network Design &amp; Optimization, 2G–5G</li>
+        <li><span class="idx mono">02</span>Outdoor Macro &amp; Indoor DAS/IBS Planning</li>
+        <li><span class="idx mono">03</span>Multi-Vendor Troubleshooting — Ericsson &amp; Nokia</li>
+        <li><span class="idx mono">04</span>KPI Monitoring &amp; Performance Tuning</li>
+        <li><span class="idx mono">05</span>Team Leadership &amp; Process Training</li>
+        <li><span class="idx mono">06</span>RFDS &amp; Plumbing Diagram Creation</li>
+	<li><span class="idx mono">07</span>Swap & Modernization of Network</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="experience">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Field Record</div>
+      <h2>Experience, site by site.</h2>
+      <p>Delivered as part of Ericsson India Global Services, engaged onto carrier and vendor programs across North America.</p>
+    </div>
+
+    <div class="home-base reveal">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2A93B" stroke-width="1.6"><path d="M3 21V7l9-4 9 4v14M9 21V12h6v9"/></svg>
+      <span><b>Home base:</b> Noida, India — engaged onto the programs below.</span>
+    </div>
+
+    <div class="timeline">
+
+      <div class="tl-item reveal">
+        <div class="tl-date">AUG 2025<br>— Present</div>
+        <div class="tl-marker"><div class="tl-dot"></div></div>
+        <div class="tl-card">
+          <div class="tl-card-head">
+            <div>
+              <div class="tl-role">Freelancing</div>
+              <div class="tl-company">Providing Services</div>
+              <div class="tl-date-mobile mono">Aug 2025 — Present</div>
+            </div>
+            <div class="tl-tags"><span class="tl-tag">Freelancing</span><span class="tl-tag">Training</span></div>
+          </div>
+          <ul class="tl-bullets">
+            <li>Delivered specialized telecom consulting services, leveraging expertise in RF design, network optimization, and next-generation communication systems to support diverse client projects.</li>
+            <li>Provided technical training and mentorship to aspiring engineers, designing hands-on workshops and knowledge sessions that bridged theory with practical industry applications.</li>
+            <li>Collaborated with engineering teams across multiple projects, ensuring high-quality solutions while fostering skill development and professional growth among junior engineers.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-date">NOV 2023<br>— AUG 2025</div>
+        <div class="tl-marker"><div class="tl-dot"></div></div>
+        <div class="tl-card">
+          <div class="tl-card-head">
+            <div>
+              <div class="tl-role">Team Lead, Network Design</div>
+              <div class="tl-company">AT&amp;T · Network SWAP &amp; Modernization</div>
+              <div class="tl-date-mobile mono">NOV 2023 — AUG 2025</div>
+            </div>
+            <div class="tl-tags"><span class="tl-tag">Team of 10</span><span class="tl-tag">5G</span></div>
+          </div>
+          <ul class="tl-bullets">
+            <li>Led a cross-functional RF design team through AT&amp;T's SWAP &amp; Modernization program, keeping the team current on process and hardware changes.</li>
+            <li>Authored RFDS for newly built sites — specifying antennas, RRHs, squids, diplexers, and filters against market and vendor requirements.</li>
+            <li>Verified antenna azimuths against design intent before sign-off.</li>
+            <li>Built plumbing diagrams so field teams could execute cleanly from the final RFDS.</li>
+            <li>Designed toward the most efficient network configuration on every site.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-date">MAY 2023<br>— NOV 2023</div>
+        <div class="tl-marker"><div class="tl-dot"></div></div>
+        <div class="tl-card">
+          <div class="tl-card-head">
+            <div>
+              <div class="tl-role">Network Operations & KPI Monitoring</div>
+              <div class="tl-company">Rogers Canada · Ericsson Vendor</div>
+              <div class="tl-date-mobile mono">MAY 2023 — NOV 2023</div>
+            </div>
+            <div class="tl-tags"><span class="tl-tag">EPP</span><span class="tl-tag">SecureCRT</span></div>
+          </div>
+          <ul class="tl-bullets">
+            <li>Tracked KPIs through Ericsson's Performance Portal (EPP) and produced COP reports.</li>
+            <li>Tuned network parameters over SecureCRT to lift KPI performance.</li>
+            <li>Ran scripts across multiple nodes simultaneously and monitored alarms fleet-wide.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-date">APR 2020<br>— MAY 2023</div>
+        <div class="tl-marker"><div class="tl-dot"></div></div>
+        <div class="tl-card">
+          <div class="tl-card-head">
+            <div>
+              <div class="tl-role">NOC / Service Assurance Engineer</div>
+              <div class="tl-company">T-Mobile · Nokia Vendor</div>
+              <div class="tl-date-mobile mono">APR 2020 — MAY 2023</div>
+            </div>
+            <div class="tl-tags"><span class="tl-tag">2G</span><span class="tl-tag">3G</span><span class="tl-tag">LTE</span><span class="tl-tag">VoLTE</span><span class="tl-tag">5G</span></div>
+          </div>
+          <ul class="tl-bullets">
+            <li>Worked daily with onshore and offshore teams on global network activities.</li>
+            <li>Managed alarms, cell status, RET validation, maintenance regions, and audit reporting in NetAct.</li>
+            <li>Monitored KPIs in One Data and analyzed clusters, tilt, interference, and RSSI in Actix.</li>
+            <li>Worked hands-on across NetAct Monitor, CM Search, CM Operational Manager, CM Editor, and Patrol.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-date">FEB 2020<br>— APR 2020</div>
+        <div class="tl-marker"><div class="tl-dot"></div></div>
+        <div class="tl-card">
+          <div class="tl-card-head">
+            <div>
+              <div class="tl-role">Integration & Pre-Production Validation</div>
+              <div class="tl-company">Verizon</div>
+              <div class="tl-date-mobile mono">FEB 2020 — APR 2020</div>
+            </div>
+            <div class="tl-tags"><span class="tl-tag">2G</span><span class="tl-tag">3G</span><span class="tl-tag">4G</span><span class="tl-tag">LTE</span><span class="tl-tag">VoLTE</span></div>
+          </div>
+          <ul class="tl-bullets">
+            <li>Partnered with a U.S. offshore team to deliver the engagement in three months.</li>
+            <li>Handled scripting, pre-integration checks, and alarm checks, and routed alarm reports to field engineers.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-date">AUG 2018<br>— FEB 2020</div>
+        <div class="tl-marker"><div class="tl-dot"></div></div>
+        <div class="tl-card">
+          <div class="tl-card-head">
+            <div>
+              <div class="tl-role">Network Operations & Troubleshooting</div>
+              <div class="tl-company">Sprint · Ericsson Vendor</div>
+              <div class="tl-date-mobile mono">AUG 2018 — FEB 2020</div>
+            </div>
+            <div class="tl-tags"><span class="tl-tag">mMIMO</span><span class="tl-tag">5G</span></div>
+          </div>
+          <ul class="tl-bullets">
+            <li>Logged into BBUs/eNBs to run scripts, collect alarms, and troubleshoot.</li>
+            <li>Validated RET status against CIQ and checked RRU and MME health.</li>
+            <li>Configured PST files so PRTS reporting reflected accurate KPIs.</li>
+            <li>Checked and updated VSWR, software versions, channel bandwidth, and output power at the node.</li>
+            <li>Maintained backups of scripts for continuity.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Instrument Panel</div>
+      <h2>Tools of the trade.</h2>
+    </div>
+    <div class="skill-groups reveal">
+      <div class="skill-card">
+        <h3>Planning &amp; Optimization</h3>
+        <div class="chip-row">
+          <span class="chip">Atoll</span><span class="chip">NetAct</span><span class="chip">Actix</span>
+          <span class="chip">IWM (AT&amp;T)</span><span class="chip">ENM</span><span class="chip">Patrol</span>
+          <span class="chip">Ericsson RAN Solutions</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Drive Test &amp; Measurement</h3>
+        <div class="chip-row">
+          <span class="chip">TEMS Investigation</span><span class="chip">SRS</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Network Mgmt &amp; Analysis</h3>
+        <div class="chip-row">
+          <span class="chip">NetAct</span><span class="chip">OSS/BSS Systems</span><span class="chip">EPP</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Scripting &amp; Productivity</h3>
+        <div class="chip-row">
+          <span class="chip">SecureCRT</span><span class="chip">Linux</span><span class="chip">Python</span>
+          <span class="chip">MS Excel</span><span class="chip">MS PowerPoint</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="core-comp reveal">
+      <h3>Also on the job</h3>
+      <div class="chip-row">
+        <span class="chip">Indoor DAS/IBS — hotels, stadiums, metro, tunnels, airports</span>
+        <span class="chip">Interference Management</span>
+        <span class="chip">Capacity Planning</span>
+        <span class="chip">Configuration Management &amp; Backups</span>
+        <span class="chip">MOP / WI Preparation</span>
+        <span class="chip">RCA Analysis</span>
+        <span class="chip">Customer Issue Resolution</span>
+        <span class="chip">Task Automation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="credentials">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Verified</div>
+      <h2>Certifications &amp; Education.</h2>
+    </div>
+    <div class="cred-grid reveal">
+      <div class="cred-card">
+        <div class="cred-eyebrow">Certifications</div>
+        <div class="cred-row">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="1.8"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1 3-6z"/></svg>
+          <div><div class="t">Ericsson Certified RAN Engineer</div><div class="s">Ericsson</div></div>
+        </div>
+        <div class="cred-row">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="1.8"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1 3-6z"/></svg>
+          <div><div class="t">Ericsson Certified Associate — Swap &amp; Modernization, NRO &amp; NDO Services</div><div class="s">Ericsson</div></div>
+        </div>
+      </div>
+      <div class="cred-card">
+        <div class="cred-eyebrow">Education</div>
+        <div class="cred-row">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4CC9F0" stroke-width="1.8"><path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg>
+          <div><div class="t">B.Tech, Electronics &amp; Communication Engineering</div><div class="s">Jaypee Institute of Information Technology, Noida — India</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="contact-panel reveal">
+      <div class="eyebrow" style="justify-content:center;">Signal Out</div>
+      <h2>Let's put your network on the map.</h2>
+      <p>Available for RF design, optimization, and network modernization engagements.</p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:jmlzaidi@gmail.com">jmlzaidi@gmail.com</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/jamal-zaidi-svz/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>© 2026 MOHAMMAD JAMAL ZAIDI · NOIDA, UTTAR PRADESH, INDIA</span>
+    <span>TELECOM DESIGN ENGINEER · NETWORK ENGINEERING</span>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll state
+  const nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle?.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Duplicate ticker content for seamless loop
+  const track = document.getElementById('tickerTrack');
+  track.innerHTML += track.innerHTML;
+
+  // Scroll reveal
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealEls = document.querySelectorAll('.reveal');
+  if (reduceMotion) {
+    revealEls.forEach(el => el.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+  }
+
+  // Hex grid background — cascading "sites powering on" effect
+  (function buildHexGrid(){
+    const svg = document.getElementById('hexcanvas');
+    const hero = document.querySelector('.hero');
+
+    function draw(){
+      const w = hero.offsetWidth;
+      const h = hero.offsetHeight;
+      svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+      svg.innerHTML = '';
+
+      const size = 34;
+      const hexW = Math.sqrt(3) * size;
+      const hexH = size * 2;
+      const vStep = hexH * 0.75;
+      const cols = Math.ceil(w / hexW) + 2;
+      const rows = Math.ceil(h / vStep) + 2;
+      const cx0 = w * 0.28, cy0 = h * 0.42; // cascade origin, roughly under headline
+
+      const ns = 'http://www.w3.org/2000/svg';
+      let count = 0;
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const x = c * hexW + (r % 2 ? hexW / 2 : 0);
+          const y = r * vStep;
+          const dist = Math.hypot(x - cx0, y - cy0);
+          const delay = (dist / 900).toFixed(2);
+          const pts = [];
+          for (let i = 0; i < 6; i++) {
+            const ang = Math.PI / 180 * (60 * i - 30);
+            pts.push(`${(x + size * Math.cos(ang)).toFixed(1)},${(y + size * Math.sin(ang)).toFixed(1)}`);
+          }
+          const poly = document.createElementNS(ns, 'polygon');
+          poly.setAttribute('points', pts.join(' '));
+          poly.setAttribute('fill', (count % 11 === 0) ? '#F2A93B14' : 'none');
+          poly.setAttribute('stroke', '#26314670');
+          poly.setAttribute('stroke-width', '1');
+          if (!reduceMotion) {
+            poly.style.opacity = '0';
+            poly.style.animation = `hexIn .9s ease forwards`;
+            poly.style.animationDelay = delay + 's';
+          } else {
+            poly.style.opacity = '0.6';
+          }
+          svg.appendChild(poly);
+          count++;
+        }
+      }
+    }
+
+    const styleTag = document.createElement('style');
+    styleTag.textContent = `@keyframes hexIn{from{opacity:0;}to{opacity:0.6;}}`;
+    document.head.appendChild(styleTag);
+
+    draw();
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(draw, 250);
+    });
+  })();
+</script>
+
+</body>
+</html>
