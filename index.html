@@ -204,35 +204,21 @@
   }
   .specialty-list li .idx{font-family:'IBM Plex Mono';font-size:12px;color:var(--amber);width:28px;flex:none;}
 
-  /* ---------- EXPERIENCE ---------- */
-  .timeline{position:relative;padding-left:2px;}
-  .timeline::before{
-    content:'';position:absolute;left:118px;top:8px;bottom:8px;width:1px;
-    background:linear-gradient(var(--hairline-solid),var(--hairline-solid) 90%, transparent);
-  }
-  @media(max-width:720px){.timeline::before{left:14px;}}
-
-  .tl-item{display:grid;grid-template-columns:100px 36px 1fr;gap:0;margin-bottom:6px;}
-  @media(max-width:720px){.tl-item{grid-template-columns:28px 1fr;}}
-  .tl-date{font-family:'IBM Plex Mono';font-size:12px;color:var(--muted-dim);padding-top:26px;line-height:1.5;}
-  @media(max-width:720px){.tl-date{display:none;}}
-  .tl-marker{display:flex;justify-content:center;padding-top:30px;position:relative;}
-  .tl-dot{width:11px;height:11px;border-radius:50%;background:var(--ink);border:2px solid var(--amber);position:relative;z-index:2;}
-  .tl-dot::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid var(--amber-dim);}
-  .tl-card{
+  /* ---------- ENGAGEMENTS ---------- */
+  .eng-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media(max-width:720px){.eng-grid{grid-template-columns:1fr;}}
+  .eng-card{
     background:var(--panel);border:1px solid var(--hairline-solid);border-radius:var(--radius);
-    padding:26px 28px;margin-bottom:28px;
+    padding:26px 28px;position:relative;overflow:hidden;
   }
-  .tl-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px;}
-  .tl-role{font-family:'Space Grotesk';font-size:19px;font-weight:600;}
-  .tl-company{font-family:'IBM Plex Mono';font-size:12.5px;color:var(--cyan);margin-top:5px;}
-  .tl-date-mobile{display:none;font-family:'IBM Plex Mono';font-size:11.5px;color:var(--muted-dim);}
-  @media(max-width:720px){.tl-date-mobile{display:block;margin-top:6px;}}
-  .tl-tags{display:flex;gap:6px;flex-wrap:wrap;}
-  .tl-tag{font-family:'IBM Plex Mono';font-size:10.5px;color:var(--muted);border:1px solid var(--hairline-solid);padding:4px 9px;border-radius:100px;letter-spacing:.03em;}
-  .tl-bullets{margin-top:16px;display:flex;flex-direction:column;gap:9px;}
-  .tl-bullets li{display:flex;gap:10px;font-size:14.5px;color:var(--muted);}
-  .tl-bullets li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--amber);flex:none;margin-top:8px;}
+  .eng-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--amber),var(--cyan));opacity:.65;}
+  .eng-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:3px;}
+  .eng-carrier{font-family:'Space Grotesk';font-size:21px;font-weight:700;}
+  .eng-date{font-family:'IBM Plex Mono';font-size:11px;color:var(--muted-dim);white-space:nowrap;padding-top:5px;}
+  .eng-program{font-family:'IBM Plex Mono';font-size:12.5px;color:var(--cyan);margin-bottom:14px;}
+  .eng-impact{font-size:14.5px;color:var(--muted);line-height:1.55;margin-bottom:16px;}
+  .eng-tags{display:flex;gap:6px;flex-wrap:wrap;}
+  .eng-tag{font-family:'IBM Plex Mono';font-size:10.5px;color:var(--muted);border:1px solid var(--hairline-solid);padding:4px 9px;border-radius:100px;letter-spacing:.03em;}
 
   .home-base{
     display:flex;align-items:center;gap:14px;padding:16px 20px;border:1px dashed var(--hairline-solid);
@@ -297,11 +283,8 @@
     .wrap{padding:0 20px;}
     .readout-grid{max-width:100%;}
 
-    .tl-marker{padding-top:24px;}
-    .tl-card{padding:20px 18px;margin-bottom:20px;}
-    .tl-role{font-size:16.5px;line-height:1.3;}
-    .tl-card-head{margin-bottom:12px;}
-    .tl-bullets li{font-size:13.5px;}
+    .eng-card{padding:20px;}
+    .eng-carrier{font-size:19px;}
 
     .cred-card{padding:20px;}
     .cred-row{gap:11px;}
@@ -311,7 +294,7 @@
     header.nav, .hero #hexcanvas, .hero-watermark, .ticker-section, .contact-panel, footer, .hero::after{display:none !important;}
     body{background:#fff;color:#111;}
     .hero{min-height:auto;padding:20px 0;}
-    .tl-card, .skill-card, .cred-card{border-color:#ccc;background:#fafafa;}
+    .eng-card, .skill-card, .cred-card{border-color:#ccc;background:#fafafa;}
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -492,140 +475,66 @@
 <section class="section" id="experience">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow">Field Record</div>
-      <h2>Track record, site by site.</h2>
-      <p>The engineering foundation behind TelecomNextGen™ — built through direct client engagements and programs delivered via Ericsson India Global Services across North America.</p>
+      <div class="eyebrow">Engagements</div>
+      <h2>Proven across five major carrier programs.</h2>
+      <p>The hands-on engineering foundation behind TelecomNextGen™ — RF design, optimization, and service assurance delivered across AT&amp;T, Verizon, T-Mobile, Sprint, and Rogers, spanning 2G through 5G.</p>
     </div>
 
     <div class="home-base reveal">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2A93B" stroke-width="1.6"><path d="M3 21V7l9-4 9 4v14M9 21V12h6v9"/></svg>
-      <span><b>Home base:</b> Noida, India — engaged onto the programs below.</span>
+      <span><b>Home base:</b> Noida, India — delivered via Ericsson India Global Services.</span>
     </div>
 
-    <div class="timeline">
+    <div class="eng-grid">
 
-      <div class="tl-item reveal">
-        <div class="tl-date">AUG 2025<br>— Present</div>
-        <div class="tl-marker"><div class="tl-dot"></div></div>
-        <div class="tl-card">
-          <div class="tl-card-head">
-            <div>
-              <div class="tl-role">Founder &amp; Lead Consultant</div>
-              <div class="tl-company">TelecomNextGen<span class="brand-tm">™</span></div>
-              <div class="tl-date-mobile mono">Aug 2025 — Present</div>
-            </div>
-            <div class="tl-tags"><span class="tl-tag">Consulting</span><span class="tl-tag">Training</span></div>
-          </div>
-          <ul class="tl-bullets">
-            <li>Deliver specialized telecom consulting services to individuals and enterprises, leveraging expertise in RF design, network optimization, and next-generation communication systems to support diverse client projects.</li>
-            <li>Provide technical training and mentorship for aspiring engineers and corporate teams, designing hands-on workshops and knowledge sessions that bridge theory with practical industry applications.</li>
-            <li>Collaborate with client engineering teams across multiple projects, ensuring high-quality solutions while fostering skill development and professional growth among junior engineers.</li>
-          </ul>
+      <div class="eng-card reveal">
+        <div class="eng-head">
+          <div class="eng-carrier">AT&amp;T</div>
+          <div class="eng-date">NOV 2023 – AUG 2025</div>
         </div>
+        <div class="eng-program">Network SWAP &amp; Modernization</div>
+        <p class="eng-impact">Led a 10-engineer RF design team through AT&amp;T's national SWAP &amp; Modernization program — RFDS, plumbing diagrams, and site-ready designs delivered for every build.</p>
+        <div class="eng-tags"><span class="eng-tag">Team of 10</span><span class="eng-tag">RFDS</span><span class="eng-tag">5G</span></div>
       </div>
 
-      <div class="tl-item reveal">
-        <div class="tl-date">NOV 2023<br>— AUG 2025</div>
-        <div class="tl-marker"><div class="tl-dot"></div></div>
-        <div class="tl-card">
-          <div class="tl-card-head">
-            <div>
-              <div class="tl-role">Team Lead, Network Design</div>
-              <div class="tl-company">AT&amp;T · Network SWAP &amp; Modernization</div>
-              <div class="tl-date-mobile mono">NOV 2023 — AUG 2025</div>
-            </div>
-            <div class="tl-tags"><span class="tl-tag">Team of 10</span><span class="tl-tag">5G</span></div>
-          </div>
-          <ul class="tl-bullets">
-            <li>Led a cross-functional RF design team through AT&amp;T's SWAP &amp; Modernization program, keeping the team current on process and hardware changes.</li>
-            <li>Authored RFDS for newly built sites — specifying antennas, RRHs, squids, diplexers, and filters against market and vendor requirements.</li>
-            <li>Verified antenna azimuths against design intent before sign-off.</li>
-            <li>Built plumbing diagrams so field teams could execute cleanly from the final RFDS.</li>
-            <li>Designed toward the most efficient network configuration on every site.</li>
-          </ul>
+      <div class="eng-card reveal">
+        <div class="eng-head">
+          <div class="eng-carrier">Rogers Canada</div>
+          <div class="eng-date">MAY 2023 – NOV 2023</div>
         </div>
+        <div class="eng-program">Network Ops &amp; KPI Monitoring · Ericsson Vendor</div>
+        <p class="eng-impact">Tracked and tuned live-network KPIs through Ericsson's Performance Portal, lifting fleet-wide performance across the network.</p>
+        <div class="eng-tags"><span class="eng-tag">EPP</span><span class="eng-tag">SecureCRT</span></div>
       </div>
 
-      <div class="tl-item reveal">
-        <div class="tl-date">MAY 2023<br>— NOV 2023</div>
-        <div class="tl-marker"><div class="tl-dot"></div></div>
-        <div class="tl-card">
-          <div class="tl-card-head">
-            <div>
-              <div class="tl-role">Network Operations & KPI Monitoring</div>
-              <div class="tl-company">Rogers Canada · Ericsson Vendor</div>
-              <div class="tl-date-mobile mono">MAY 2023 — NOV 2023</div>
-            </div>
-            <div class="tl-tags"><span class="tl-tag">EPP</span><span class="tl-tag">SecureCRT</span></div>
-          </div>
-          <ul class="tl-bullets">
-            <li>Tracked KPIs through Ericsson's Performance Portal (EPP) and produced COP reports.</li>
-            <li>Tuned network parameters over SecureCRT to lift KPI performance.</li>
-            <li>Ran scripts across multiple nodes simultaneously and monitored alarms fleet-wide.</li>
-          </ul>
+      <div class="eng-card reveal">
+        <div class="eng-head">
+          <div class="eng-carrier">T-Mobile</div>
+          <div class="eng-date">APR 2020 – MAY 2023</div>
         </div>
+        <div class="eng-program">Service Assurance · Nokia Vendor</div>
+        <p class="eng-impact">Three years of service assurance spanning four network generations — alarms, RET validation, and KPI monitoring nationwide.</p>
+        <div class="eng-tags"><span class="eng-tag">2G</span><span class="eng-tag">3G</span><span class="eng-tag">LTE</span><span class="eng-tag">VoLTE</span><span class="eng-tag">5G</span></div>
       </div>
 
-      <div class="tl-item reveal">
-        <div class="tl-date">APR 2020<br>— MAY 2023</div>
-        <div class="tl-marker"><div class="tl-dot"></div></div>
-        <div class="tl-card">
-          <div class="tl-card-head">
-            <div>
-              <div class="tl-role">NOC / Service Assurance Engineer</div>
-              <div class="tl-company">T-Mobile · Nokia Vendor</div>
-              <div class="tl-date-mobile mono">APR 2020 — MAY 2023</div>
-            </div>
-            <div class="tl-tags"><span class="tl-tag">2G</span><span class="tl-tag">3G</span><span class="tl-tag">LTE</span><span class="tl-tag">VoLTE</span><span class="tl-tag">5G</span></div>
-          </div>
-          <ul class="tl-bullets">
-            <li>Worked daily with onshore and offshore teams on global network activities.</li>
-            <li>Managed alarms, cell status, RET validation, maintenance regions, and audit reporting in NetAct.</li>
-            <li>Monitored KPIs in One Data and analyzed clusters, tilt, interference, and RSSI in Actix.</li>
-            <li>Worked hands-on across NetAct Monitor, CM Search, CM Operational Manager, CM Editor, and Patrol.</li>
-          </ul>
+      <div class="eng-card reveal">
+        <div class="eng-head">
+          <div class="eng-carrier">Verizon</div>
+          <div class="eng-date">FEB 2020 – APR 2020</div>
         </div>
+        <div class="eng-program">Integration &amp; Pre-Production Validation</div>
+        <p class="eng-impact">Delivered pre-production integration and validation in a fast-tracked three-month offshore engagement.</p>
+        <div class="eng-tags"><span class="eng-tag">2G</span><span class="eng-tag">3G</span><span class="eng-tag">4G</span><span class="eng-tag">LTE</span><span class="eng-tag">VoLTE</span></div>
       </div>
 
-      <div class="tl-item reveal">
-        <div class="tl-date">FEB 2020<br>— APR 2020</div>
-        <div class="tl-marker"><div class="tl-dot"></div></div>
-        <div class="tl-card">
-          <div class="tl-card-head">
-            <div>
-              <div class="tl-role">Integration & Pre-Production Validation</div>
-              <div class="tl-company">Verizon</div>
-              <div class="tl-date-mobile mono">FEB 2020 — APR 2020</div>
-            </div>
-            <div class="tl-tags"><span class="tl-tag">2G</span><span class="tl-tag">3G</span><span class="tl-tag">4G</span><span class="tl-tag">LTE</span><span class="tl-tag">VoLTE</span></div>
-          </div>
-          <ul class="tl-bullets">
-            <li>Partnered with a U.S. offshore team to deliver the engagement in three months.</li>
-            <li>Handled scripting, pre-integration checks, and alarm checks, and routed alarm reports to field engineers.</li>
-          </ul>
+      <div class="eng-card reveal">
+        <div class="eng-head">
+          <div class="eng-carrier">Sprint</div>
+          <div class="eng-date">AUG 2018 – FEB 2020</div>
         </div>
-      </div>
-
-      <div class="tl-item reveal">
-        <div class="tl-date">AUG 2018<br>— FEB 2020</div>
-        <div class="tl-marker"><div class="tl-dot"></div></div>
-        <div class="tl-card">
-          <div class="tl-card-head">
-            <div>
-              <div class="tl-role">Network Operations & Troubleshooting</div>
-              <div class="tl-company">Sprint · Ericsson Vendor</div>
-              <div class="tl-date-mobile mono">AUG 2018 — FEB 2020</div>
-            </div>
-            <div class="tl-tags"><span class="tl-tag">mMIMO</span><span class="tl-tag">5G</span></div>
-          </div>
-          <ul class="tl-bullets">
-            <li>Logged into BBUs/eNBs to run scripts, collect alarms, and troubleshoot.</li>
-            <li>Validated RET status against CIQ and checked RRU and MME health.</li>
-            <li>Configured PST files so PRTS reporting reflected accurate KPIs.</li>
-            <li>Checked and updated VSWR, software versions, channel bandwidth, and output power at the node.</li>
-            <li>Maintained backups of scripts for continuity.</li>
-          </ul>
-        </div>
+        <div class="eng-program">Network Ops &amp; Troubleshooting · Ericsson Vendor</div>
+        <p class="eng-impact">Hands-on troubleshooting and RET/RRU validation across a national massive MIMO 5G rollout.</p>
+        <div class="eng-tags"><span class="eng-tag">mMIMO</span><span class="eng-tag">5G</span></div>
       </div>
 
     </div>
