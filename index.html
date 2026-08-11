@@ -701,7 +701,6 @@
         <button type="button" class="btn btn-primary" data-open-contact> Get in Touch ✉ </button>
         <a class="btn btn-ghost" href="https://www.linkedin.com/company/telecomnextgen/" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
-      <p style="margin-top:18px;font-size:12.5px;color:var(--muted-dim);">Prefer email? Write to us at <a href="mailto:telecomnextgenz@gmail.com" style="color:var(--cyan);">telecomnextgenz@gmail.com</a></p>
     </div>
   </div>
 </section>
@@ -772,7 +771,7 @@
         </div>
         <div class="form-status" id="cf-status"></div>
 
-        <p class="form-note">By submitting, you agree to be contacted by TelecomNextGen™ regarding your inquiry. Prefer email? Write directly to <a href="mailto:telecomnextgenz@gmail.com">telecomnextgenz@gmail.com</a></p>
+        <p class="form-note">By submitting, you agree to be contacted by TelecomNextGen™ regarding your inquiry.</p>
       </form>
     </div>
 
@@ -937,7 +936,7 @@
         successView.style.display = 'block';
         form.reset();
       } catch (err) {
-        statusEl.textContent = "Something went wrong sending your message. Please try again, or email us directly at telecomnextgenz@gmail.com.";
+        statusEl.textContent = "Something went wrong sending your message. Please try again.";
         statusEl.classList.add('show', 'error');
       } finally {
         submitBtn.disabled = false;
